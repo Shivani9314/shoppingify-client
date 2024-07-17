@@ -1,22 +1,25 @@
-import React from 'react'
-import { BallTriangle } from 'react-loader-spinner'
-import { useSelector } from 'react-redux'
-import { selectLoader } from '../../slices/loaderSlice'
+import React from 'react';
+import { BallTriangle } from 'react-loader-spinner';
+import { useSelector } from 'react-redux';
+import { selectLoader } from '../../slices/loaderSlice';
 
 function Loader() {
-    const loader = useSelector(selectLoader)
+    const loader = useSelector(selectLoader);
+
     return (
-            <BallTriangle
-                height={100}
-                width={100}
-                radius={5}
-                color= "#f9a109"
-                ariaLabel="ball-triangle-loading"
-                wrapperStyle={{}}
-                wrapperClass=""
-                visible={loader}
-            />
-    )
+        <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center z-50 bg-white opacity-75">
+            {loader && (
+                <BallTriangle
+                    height={100}
+                    width={100}
+                    radius={5}
+                    color="#f9a109"
+                    ariaLabel="ball-triangle-loading"
+                    visible={loader}
+                />
+            )}
+        </div>
+    );
 }
 
-export default Loader
+export default Loader;
