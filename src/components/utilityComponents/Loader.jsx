@@ -7,7 +7,7 @@ function Loader() {
     const loader = useSelector(selectLoader);
 
     return (
-        <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center z-50 bg-white">
+        <div className={`fixed inset-0 flex items-center justify-center z-50 bg-white ${loader ? 'opacity-75' : 'opacity-0'} transition-opacity duration-300`}>
             {loader && (
                 <BallTriangle
                     height={100}
