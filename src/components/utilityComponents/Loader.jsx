@@ -7,17 +7,15 @@ function Loader() {
     const loader = useSelector(selectLoader);
 
     return (
-        <div className={`fixed inset-0 flex items-center justify-center z-50 bg-white ${loader ? 'opacity-75' : 'opacity-0'} transition-opacity duration-300`}>
-            {loader && (
-                <BallTriangle
-                    height={100}
-                    width={100}
-                    radius={5}
-                    color="#f9a109"
-                    ariaLabel="ball-triangle-loading"
-                    visible={loader}
-                />
-            )}
+        <div className={`fixed inset-0 flex items-center justify-center z-50 bg-white ${loader ? 'opacity-75 pointer-events-auto' : 'opacity-0 pointer-events-none'}`} aria-hidden={!loader}>
+            <BallTriangle
+                height={100}
+                width={100}
+                radius={5}
+                color="#f9a109"
+                ariaLabel="ball-triangle-loading"
+                visible={loader}
+            />
         </div>
     );
 }
